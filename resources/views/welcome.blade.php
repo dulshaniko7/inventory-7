@@ -1,100 +1,161 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="{{ asset('backend/img/logo/logo.png')}}" rel="icon">
+    <title>RuangAdmin - Dashboard</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+    <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
+</head>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+<body id="page-top">
+<div id="wrapper">
+    <!-- Sidebar -->
+    <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon">
+                <img src="{{ asset ('backend/img/logo/logo2.png')}}">
+            </div>
+            <div class="sidebar-brand-text mx-3">RuangAdmin</div>
+        </a>
+        <hr class="sidebar-divider my-0">
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            Features
+        </div>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
+               aria-expanded="true" aria-controls="collapseBootstrap">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Bootstrap UI</span>
+            </a>
+            <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Bootstrap UI</h6>
+                    <a class="collapse-item" href="alerts.html">Alerts</a>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
+                    <a class="collapse-item" href="modals.html">Modals</a>
+                    <a class="collapse-item" href="popovers.html">Popovers</a>
+                    <a class="collapse-item" href="progress-bar.html">Progress Bars</a>
                 </div>
             </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="forms.html">
+                <i class="fab fa-fw fa-wpforms"></i>
+                <span>Forms</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
+               aria-expanded="true"
+               aria-controls="collapseTable">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Tables</span>
+            </a>
+            <div id="collapseTable" class="collapse" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Tables</h6>
+                    <a class="collapse-item" href="simple-tables.html">Simple Tables</a>
+                    <a class="collapse-item" href="datatables.html">DataTables</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="ui-colors.html">
+                <i class="fas fa-fw fa-palette"></i>
+                <span>UI Colors</span>
+            </a>
+        </li>
+        <hr class="sidebar-divider">
+        <div class="sidebar-heading">
+            Examples
         </div>
-    </body>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePage"
+               aria-expanded="true"
+               aria-controls="collapsePage">
+                <i class="fas fa-fw fa-columns"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePage" class="collapse" aria-labelledby="headingPage" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Example Pages</h6>
+                    <a class="collapse-item" href="login.html">Login</a>
+                    <a class="collapse-item" href="register.html">Register</a>
+                    <a class="collapse-item" href="404.html">404 Page</a>
+                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span>
+            </a>
+        </li>
+        <hr class="sidebar-divider">
+        <div class="version" id="version-ruangadmin"></div>
+    </ul>
+    <!-- Sidebar -->
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <!-- TopBar -->
+
+            <!-- Topbar -->
+
+            <div id="app">
+                <main-app></main-app>
+            </div>
+            <!---Container Fluid-->
+        </div>
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
+              <b><a href="https://indrijunanda.gitlab.io/" target="_blank">indrijunanda</a></b>
+            </span>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+    </div>
+</div>
+
+<!-- Scroll to top -->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('backend/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+<script src="{{ asset('backend/js/ruang-admin.min.js')}}"></script>
+<script src="{{ asset('backend/vendor/chart.js/Chart.min.js')}}"></script>
+<script src="{{ asset('backend/js/demo/chart-area-demo.js')}}"></script>
+</body>
+
 </html>
+<script>
+    import MainApp from "../js/MainApp";
+
+    export default {
+        components: {MainApp}
+    }
+</script>
