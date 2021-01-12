@@ -3,7 +3,6 @@
         <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
 
 
-
             <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                 <i class="fa fa-bars"></i>
             </button>
@@ -179,11 +178,38 @@
                     </div>
                 </li>
                 <div class="topbar-divider d-none d-sm-block"></div>
-                <li class="nav-item">
-                    <router-link class="nav-link" :to="{name : 'login'}">Login</router-link>
+                <li class="nav-item dropdown no-arrow" v-show="isLogged">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <img class="img-profile rounded-circle" :src="'/backend/img/boy.png'" style="max-width: 60px">
+                        <span class="ml-2 d-none d-lg-inline text-white small">{{name}}</span>
+                        <router-link :to="{name : 'logout'}">Logout</router-link>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Settings
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Activity Log
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" :to="{name : 'register'}">Register</router-link>
+                    <router-link class="nav-link" :to="{name : 'login'}" v-show="!isLogged">Login</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link class="nav-link" :to="{name : 'register'}" v-show="!isLogged">Register</router-link>
                 </li>
             </ul>
         </nav>
@@ -192,7 +218,19 @@
 
 <script>
     export default {
-        name: "Navi"
+        name: "Navi",
+        data() {
+            return {
+                isLogged: false,
+                name:''
+            }
+        },
+        mounted() {
+            if (User.loggedIn()) {
+                this.isLogged = true
+                this.name = User.name()
+            }
+        },
     }
 </script>
 

@@ -11,10 +11,13 @@ class User {
     }
 
     hasToken(){
-       const storeToken = localStorage.getItem(token)
+       // alert('token'+localStorage.getItem(token))
+       const storeToken = localStorage.getItem('token')
+
         if(storeToken){
             return Token.isValid(storeToken) ? true : false
         }
+        false
     }
 
     loggedIn(){

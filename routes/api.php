@@ -32,3 +32,8 @@ Route::group([
     Route::post('register', 'AuthController@register');
 
 });
+
+Route::apiResource('employee', 'Api\EmployeeController');
+Route::apiResource('product','Api\ProductController');
+
+Route::apiResource('category','Api\CategoryController');
